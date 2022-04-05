@@ -1,5 +1,14 @@
 # code-with-quarkus Project
 
+This is a minor fork of the Quarkus blog post
+
+https://quarkus.io/blog/micrometer-prometheus-openshift/
+
+I just used a differenet project name.
+
+
+
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
