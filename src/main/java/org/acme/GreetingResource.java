@@ -1,5 +1,7 @@
 package org.acme;
 
+import org.jboss.logging.Logger;
+
 import javax.inject.Inject;
 
 import javax.ws.rs.GET;
@@ -14,6 +16,8 @@ import io.micrometer.core.instrument.Tags;
 @Path("/hello")
 public class GreetingResource {
 
+    private static final Logger LOG = Logger.getLogger(GreetingResource.class);
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
@@ -26,9 +30,10 @@ public class GreetingResource {
     @GET
     @Path("/{name}")
     public String sayHello(@PathParam(value = "name") String name) {
+        LOG.info("Name is: " + name);
         registry.counter("greeting_counter", Tags.of("name", name)).increment();
 
-        return "Hello!";
+        return "Hello " + name + "!";
     }
 
 
